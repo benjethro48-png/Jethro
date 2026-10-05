@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FixIt - Campus Maintenance Reporting System</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <header class="navbar">
+      <h1>🛠️ FixIt Campus System</h1>
+      <p>Centralized Maintenance Reporting & Tracking Platform</p>
+    </header>
+
+    <!-- Metrics Dashboard -->
+    <section class="stats-section">
+      <div class="stat-card">
+        <h3>Total Issues</h3>
+        <p id="total-count">0</p>
+      </div>
+      <div class="stat-card pending">
+        <h3>Pending</h3>
+        <p id="pending-count">0</p>
+      </div>
+      <div class="stat-card progress">
+        <h3>In Progress</h3>
+        <p id="progress-count">0</p>
+      </div>
+      <div class="stat-card resolved">
+        <h3>Resolved</h3>
+        <p id="resolved-count">0</p>
+      </div>
+    </section>
+
+    <main class="main-content">
+      <!-- Issue Submission Form -->
+      <section class="form-card">
+        <h2>Report an Issue</h2>
+        <form id="issue-form">
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select id="category" required>
+              <option value="">Select Category</option>
+              <option value="Furniture">Furniture</option>
+              <option value="Electrical">Electrical Equipment</option>
+              <option value="Plumbing">Water Leakage / Plumbing</option>
+              <option value="Classroom">Classroom Maintenance</option>
+              <option value="Others">Others</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="location">Location / Room No.</label>
+            <input type="text" id="location" placeholder="e.g., Block A - Lab 3" required>
+          </div>
+
+          <div class="form-group">
+            <label for="priority">Priority Level</label>
+            <select id="priority" required>
+              <option value="Low">Low</option>
+              <option value="Medium" selected>Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Issue Description</label>
+            <textarea id="description" rows="3" placeholder="Describe the problem..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Submit Complaint</button>
+        </form>
+      </section>
+
+      <!-- Dashboard & Filter Section -->
+      <section class="dashboard-card">
+        <div class="dashboard-header">
+          <h2>Issues Dashboard</h2>
+          <div class="filter-controls">
+            <input type="text" id="search-input" placeholder="Search by description or location...">
+            <select id="filter-status">
+              <option value="All">All Statuses</option>
+              <option value="Pending">Pending</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Resolved">Resolved</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Category</th>
+                <th>Location</th>
+                <th>Priority</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="issues-table-body">
+              <!-- Issues dynamically loaded -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
